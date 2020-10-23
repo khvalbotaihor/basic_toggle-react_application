@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Person from "./Person/Person";
+import Radium, {StyleRoot} from 'radium';
 
 class App extends Component {
 
@@ -19,8 +20,8 @@ class App extends Component {
 
     nameChangedHandler = (event, id) => {
 
-        const personIndex = this.state.persons.findIndex(p =>{
-            return p.id===id
+        const personIndex = this.state.persons.findIndex(p => {
+            return p.id === id
         });
 
 
@@ -56,11 +57,16 @@ class App extends Component {
 
         const style = {
             backgroundColor: 'green',
-            color:'white',
+            color: 'white',
             font: 'inherit',
             border: '1px solid blue',
             padding: '8px',
             cursor: 'pointor',
+            ':hover': {
+                backgroundColor: 'lightgreen',
+                color: 'black'
+
+            }
 
         }
 
@@ -75,7 +81,7 @@ class App extends Component {
                             name={person.name}
                             age={person.age}
                             key={person.id}
-                            changed = {(event) => this.nameChangedHandler(event, person.id)}
+                            changed={(event) => this.nameChangedHandler(event, person.id)}
                         />
 
 
@@ -83,33 +89,41 @@ class App extends Component {
 
                 </div>
             )
-            style.backgroundColor='red'
+            style.backgroundColor = 'red';
+            style[':hover'] = {
+                backgroundColor: 'salmon',
+                color: 'black'
+
+            }
         }
 
         const classes = [];
 
-        if (this.state.persons.length <=2){
+        if (this.state.persons.length <= 2) {
             classes.push('red')  // classes will be red
-        }if (this.state.persons.length <=1){
+        }
+        if (this.state.persons.length <= 1) {
             classes.push('bold') // classes is alse red and bold
         }
 
 
         return (
-            <div className="App">
-                <h1>Hi, I'm a React Appg</h1>
-                <p className={classes.join(' ')}>This is realy working!</p>
-                <button
-                    style={style}
-                    onClick={this.togglePersonsHandler}
-                >SwitchName
-                </button>
-                {persons}
+            <StyleRoot>
+                <div className="App">
+                    <h1>Hi, I'm a React Appg</h1>
+                    <p className={classes.join(' ')}>This is realy working!</p>
+                    <button
+                        style={style}
+                        onClick={this.togglePersonsHandler}
+                    >SwitchName
+                    </button>
+                    {persons}
 
 
-            </div>
+                </div>
+            </StyleRoot>
         );
     }
 }
 
-export default App;
+export default Radium(App);
