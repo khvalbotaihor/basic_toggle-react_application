@@ -25,7 +25,7 @@ class App extends Component {
             ...this.state.persons[personIndex]
         }
 
-        person.name = event.target.value; E
+        person.name = event.target.value;
 
         const persons = [...this.state.persons];
         persons[personIndex] = person;
