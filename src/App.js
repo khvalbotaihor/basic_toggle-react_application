@@ -1,16 +1,30 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
+
 import './App.css';
 import Person from "./Person/Person";
-import Radium, {StyleRoot} from 'radium';
+
+const StyleButton = styled.button`
+            color: white;
+            font: inherit;
+            background-color: ${props => props.alt ? 'red' : 'green'};
+            border: 1px solid blue;
+            padding: 8px;
+            cursor: pointer;
+           &:hover {
+                background-color: ${props => props.alt ? 'salmon' : 'lightgreen'};
+                color: black;
+            }
+
+`;
+
 
 class App extends Component {
 
     state = {
         persons: [
             {id: '1', name: "Max", age: 28},
-            {id: '2', name: "Manu", age: 29},
-            {id: '3', name: "Stephanie", age: 26},
+            {id: '2', name: "Andrii", age: 29},
+            {id: '3', name: "Yulia", age: 26},
         ],
         otherState: "some other value",
         showPersons: false
@@ -108,22 +122,20 @@ class App extends Component {
 
 
         return (
-            <StyleRoot>
-                <div className="App">
-                    <h1>Hi, I'm a React Appg</h1>
-                    <p className={classes.join(' ')}>This is realy working!</p>
-                    <button
-                        style={style}
-                        onClick={this.togglePersonsHandler}
-                    >SwitchName
-                    </button>
-                    {persons}
+            <div className="App">
+                <h1>Hi, I'm a React App</h1>
+                <p className={classes.join(' ')}>This is realy working!</p>
 
+                <button
+                    className='button'
+                    onClick={this.togglePersonsHandler}
+                >Toggle Persons</button>
 
-                </div>
-            </StyleRoot>
+                {persons}
+
+            </div>
         );
     }
 }
 
-export default Radium(App);
+export default App;
