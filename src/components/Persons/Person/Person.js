@@ -1,21 +1,37 @@
-import React from 'react';
+import React, {Component, Fragment} from 'react';
 import classes from './Person.css'
+import Auxiliary from "../../../hoc/Auxiliary";
+import withClass from '../../../hoc/withClass';
 
-const person = (props) => {
-    const rnd = Math.random();
+class Person extends Component {
 
-/*    if(rnd > 0.7){
-        throw new Error('Something went wrong')
-    }*/
 
-    return (
+    render() {
+        const rnd = Math.random();
+        console.log('[Person.js] rendering')
+        /*    if(rnd > 0.7){
+                throw new Error('Something went wrong')
+            }*/
 
-        <div className={classes.Person}>
-            <p onClick={props.click}>I'm {props.name} and I am {props.age} years old!</p>
-            <p>{props.children}</p>
-            <input type="text" onChange={props.changed} value={props.name}/>
-        </div>
-    )
+        return (
+/*
+            <WithClass classes={classes.Person}>
+*/
+
+               <Auxiliary>
+
+                    <p onClick={this.props.click}>I'm {this.props.name} and I am {this.props.age} years old!</p>
+                    <p>{this.props.children}</p>
+                    <input type="text" onChange={this.props.changed} value={this.props.name}/>
+
+                </Auxiliary>
+
+/*
+            </WithClass>
+*/
+        )
+    }
+
 }
 
-export default person;
+export default withClass(Person,classes.Person);
