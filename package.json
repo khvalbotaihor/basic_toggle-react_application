@@ -2,7 +2,7 @@
   "name": "burger_app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://khvalbotaihor.github.io/burger_app",
+  "homepage": "https://khvalbotaihor.github.io/basic_toggle-react_application",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "babel-core": "6.26.0",
