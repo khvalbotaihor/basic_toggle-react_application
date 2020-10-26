@@ -29,10 +29,10 @@ class Person extends Component {
 }
 
 Person.propTypes = {
-    click: PropTypes.fun,
+    click: PropTypes.func,
     name: PropTypes.string,
     age: PropTypes.number,
-    changed: PropTypes.fun
+    changed: PropTypes.func
 
 }
 
