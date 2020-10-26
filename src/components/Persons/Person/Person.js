@@ -2,7 +2,8 @@ import React, {Component, Fragment} from 'react';
 import classes from './Person.css'
 import Auxiliary from "../../../hoc/Auxiliary";
 import withClass from '../../../hoc/withClass';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import AuthContext from '../../../context/auth-context'
 
 class Person extends Component {
 
