@@ -24,7 +24,8 @@ class App extends Component {
         otherState: "some other value",
         showPersons: false,
         showCockpit: true,
-        changeCounter: 0
+        changeCounter: 0,
+        authenticated:false
     }
 
 
@@ -65,10 +66,10 @@ class App extends Component {
         const persons = [...this.state.persons];
         persons[personIndex] = person;
 
-        this.setState((prevSate,props)=>{
+        this.setState((prevSate, props) => {
             return {
                 persons: persons,
-                    changeCounter: this.state.changeCounter+1
+                changeCounter: this.state.changeCounter + 1
             }
         })
     }
@@ -84,6 +85,11 @@ class App extends Component {
         const doesShow = this.state.showPersons;
         this.setState({showPersons: !doesShow})
     }
+
+    loginHandler = () =>{
+        this.setState({authenticated: true})
+    }
+
 
     render() {
 
@@ -115,6 +121,7 @@ class App extends Component {
                         showPersons={this.state.showPersons}
                         personsLength={this.state.persons.length}
                         clicked={this.togglePersonsHandler}
+                        login={this.loginHandler}
                     />
                     : null
                 }
