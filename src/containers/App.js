@@ -5,6 +5,7 @@ import Persons from '../components/Persons/Persons'
 import Cockpit from "../components/Cockpit/Cockpit";
 import withClass from "../hoc/withClass";
 import Auxiliary from "../hoc/Auxiliary";
+import AuthContext from '../context/auth-context'
 
 
 class App extends Component {
@@ -117,6 +118,7 @@ class App extends Component {
                 }}>Remove Cockpit
                 </button>
 
+                <AuthContext.Provider>
                     {this.state.showCockpit ?
                         <Cockpit
                             title={this.props.appTitle}
@@ -128,6 +130,8 @@ class App extends Component {
                         : null
                     }
                     {persons}
+                </AuthContext.Provider>
+
             </Auxiliary>
             /*
                         </WithClass>
