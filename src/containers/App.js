@@ -25,7 +25,7 @@ class App extends Component {
         showPersons: false,
         showCockpit: true,
         changeCounter: 0,
-        authenticated:false
+        authenticated: false
     }
 
 
@@ -86,7 +86,7 @@ class App extends Component {
         this.setState({showPersons: !doesShow})
     }
 
-    loginHandler = () =>{
+    loginHandler = () => {
         this.setState({authenticated: true})
     }
 
@@ -116,17 +116,18 @@ class App extends Component {
                     this.setState({showCockpit: false})
                 }}>Remove Cockpit
                 </button>
-                {this.state.showCockpit ?
-                    <Cockpit
-                        title={this.props.appTitle}
-                        showPersons={this.state.showPersons}
-                        personsLength={this.state.persons.length}
-                        clicked={this.togglePersonsHandler}
-                        login={this.loginHandler}
-                    />
-                    : null
-                }
-                {persons}
+
+                    {this.state.showCockpit ?
+                        <Cockpit
+                            title={this.props.appTitle}
+                            showPersons={this.state.showPersons}
+                            personsLength={this.state.persons.length}
+                            clicked={this.togglePersonsHandler}
+                            login={this.loginHandler}
+                        />
+                        : null
+                    }
+                    {persons}
             </Auxiliary>
             /*
                         </WithClass>
