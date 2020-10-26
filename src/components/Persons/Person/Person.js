@@ -26,18 +26,20 @@ class Person extends Component {
 
         return (
             <Auxiliary>
+                <AuthContext.Consumer>{
+                    context=>context.authenticated ? <p>Authenticated!</p> : <p>Please log in</p>
 
-                {this.props.isAuth? <p>Authenticated!</p> : <p>Please log in</p>}
+                }
+                </AuthContext.Consumer>
 
                 <p onClick={this.props.click}>I'm {this.props.name} and I am {this.props.age} years old!</p>
-                <p>{this.props.children}</p>
-                <input
-                    key="i3"
-                    ref={this.inputElementRef}
-                    type="text"
-                    onChange={this.props.changed}
-                    value={this.props.name}/>
-
+                    <p>{this.props.children}</p>
+                    <input
+                        key="i3"
+                        ref={this.inputElementRef}
+                        type="text"
+                        onChange={this.props.changed}
+                        value={this.props.name}/>
             </Auxiliary>
 
         )
