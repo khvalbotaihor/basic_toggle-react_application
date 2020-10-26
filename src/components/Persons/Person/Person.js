@@ -7,6 +7,15 @@ import PropTypes from 'prop-types'
 class Person extends Component {
 
 
+    constructor() {
+        super();
+        this.inputElementRef = React.createRef();
+    }
+
+    componentDidMount() {
+        this.inputElementRef.current.focus();
+    }
+
     render() {
         const rnd = Math.random();
         console.log('[Person.js] rendering')
@@ -19,7 +28,12 @@ class Person extends Component {
 
                 <p onClick={this.props.click}>I'm {this.props.name} and I am {this.props.age} years old!</p>
                 <p>{this.props.children}</p>
-                <input type="text" onChange={this.props.changed} value={this.props.name}/>
+                <input
+                    key="i3"
+                    ref={this.inputElementRef}
+                    type="text"
+                    onChange={this.props.changed}
+                    value={this.props.name}/>
 
             </Auxiliary>
 
