@@ -102,6 +102,7 @@ class App extends Component {
                 persons={this.state.persons}
                 clicked={this.deletePersonHandler}
                 changed={this.nameChangedHandler}
+                isAuthentificated={this.state.authenticated}
             />
         }
 
